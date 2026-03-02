@@ -1,0 +1,18 @@
+```toml
+[project]
+name = "oqtabassum-voice-agent"
+version = "0.1.0"
+description = "OqTabassum clinic AI voice agent"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn>=0.27",
+  "pydantic>=2.6",
+  "pydantic-settings>=2.2",
+  "python-dotenv>=1.0",
+  "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
