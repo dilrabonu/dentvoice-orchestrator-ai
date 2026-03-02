@@ -87,8 +87,37 @@ class FakeClinicBackend:
         }
         self._bookings_by_phone[idem_key] = resp
         return resp
+
+    def find_customer_by_phone(self, phone: str) -> Optional[dict]:
+        return self._customers.get(phone)
+
+    def upsert_customer(self, name: str, phone: str) -> dict:
+        self._customers[phone] = {"name": name, "phone": phone}
+        return self._customers[phone]
+
+    def get_location(self) -> dict:
+        return{
+            "address": "Safra stomotologiya klinikasi, Fargo'na viloyat, Uchko'prik tumani markazida",
+            "landmark": "Mo'ljal 1 maktabga yaqin",
+        }
+
+    def get_preparation(self, service: str) -> dict:
+        return{
+            "service": service,
+            "instructions": [
+                "Ko'rikdan oldin 10 daqiqa ertaroq keling",
+                "Agar o'g'riq bo'lsa, shifokorga albatta ayting",
+            ],
+        }
     
-    
+    def get_price(self, service: str) -> dict:
+        # Policy never disclose numeric price
+        return {
+            "service": service,
+            "pricing_policy": "Narx ko'rikdan keyin aniq bo'ladi",
+            "can_estimate": False
+        }
+
 
 
 
