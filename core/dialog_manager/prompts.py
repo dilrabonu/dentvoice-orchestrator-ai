@@ -3,11 +3,11 @@ from __future__ import annotations
 
 class Copy:
     """
-    Uzbek receptionist-style copy for Safra.
+    Uzbek receptionist-style copy for OqTabassum.
     Short, clear, friendly.
     """
 
-    GREETING = "Assalomu alaykum! Safra stomatologiya klinikasiga xush kelibsiz. Qanday yordam bera olaman?"
+    GREETING = "Assalomu alaykum! OqTabassum klinikasiga xush kelibsiz. Qanday yordam bera olaman?"
     ASK_SERVICE = "Qaysi xizmat kerak: konsultatsiya, tish davolash yoki tish tozalash?"
     ASK_DATE = "Qaysi kunga yozay: bugunmi yoki ertagami? (yoki sana: YYYY-MM-DD)"
     ASK_TIME = "Qaysi vaqt qulay? Masalan: 10:00 yoki 15:00."

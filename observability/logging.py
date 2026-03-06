@@ -1,21 +1,20 @@
 from __future__ import annotations
 
 import logging
-
 from typing import Any, Dict, Optional
+
 
 def setup_logger(name: str, level: str = "INFO") -> logging.Logger:
     """
     Create a consistent logger across services.
 
     Args:
-    name: Logger name
-    level: Log level string (INFO, DEBUG, etc)
+        name: Logger name.
+        level: Log level string (INFO, DEBUG, etc).
 
     Returns:
-    Configured logger.
+        Configured logger.
     """
-
     logger = logging.getLogger(name)
     if logger.handlers:
         return logger
@@ -30,26 +29,27 @@ def setup_logger(name: str, level: str = "INFO") -> logging.Logger:
     logger.propagate = False
     return logger
 
+
 def kv(**fields: Any) -> str:
     """
     Convert key/value fields into a compact log suffix.
-    Example: kv(call_is="123", state="Greeting") -> "call_id=123, state=Greeting"
+    Example: kv(call_id="123", state="GREETING") -> "call_id=123 state=GREETING"
     """
     safe: Dict[str, Any] = {k: v for k, v in fields.items() if v is not None}
     return " ".join(f"{k}={v}" for k, v in safe.items())
+
 
 def mask_phone(phone: str, keep_last: int = 3) -> str:
     """
     Mask phone number for logs (PII-safe).
 
     Args:
-    phone: Raw phone number.
-    keep_last: Number of last digits to keep unmasked.
+        phone: Raw phone number.
+        keep_last: Number of last digits to keep unmasked.
 
     Returns:
-    Masked phone string.
+        Masked phone string.
     """
-
     if not phone:
         return ""
     tail = phone[-keep_last:]

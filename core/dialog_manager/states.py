@@ -1,19 +1,21 @@
-from __future__ import annotations 
+from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
 from typing import Optional
 
+
 class DialogState(str, Enum):
-    GREETINGS = "GREETINGS"
+    GREETING = "GREETING"
     INTENT_ROUTING = "INTENT_ROUTING"
-    COLLECT_SLOT = "COLLECT_SLOTS"
+    COLLECT_SLOTS = "COLLECT_SLOTS"
     OFFER_SLOTS = "OFFER_SLOTS"
     CONFIRM_ACTION = "CONFIRM_ACTION"
     EXECUTE_ACTION = "EXECUTE_ACTION"
     WRAP_UP = "WRAP_UP"
     RECOVERY = "RECOVERY"
     HANDOFF = "HANDOFF"
+
 
 class Intent(str, Enum):
     BOOKING = "BOOKING"
@@ -22,12 +24,13 @@ class Intent(str, Enum):
     PRICE = "PRICE"
     UNKNOWN = "UNKNOWN"
 
+
 @dataclass
 class Slots:
     doctor: str
     service: Optional[str] = None
-    date: Optional[str] = None
-    time: Optional[str] = None
+    date: Optional[str] = None   # YYYY-MM-DD
+    time: Optional[str] = None   # HH:MM
     name: Optional[str] = None
     phone: Optional[str] = None
 
