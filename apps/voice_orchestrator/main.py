@@ -11,7 +11,7 @@ from tools.fake_backend import FakeClinicBackend
 
 logger = setup_logger("oqtabassum", settings.log_level)
 
-app = FastAPI(title="OqTabassum Voice Orchestrator (Phase 2)")
+app = FastAPI(title="OqTabassum Voice Orchestrator")
 
 
 def _build_app() -> None:

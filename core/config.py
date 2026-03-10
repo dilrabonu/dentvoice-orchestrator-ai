@@ -14,7 +14,7 @@ class Settings(BaseSettings):
 
     pricing_mode: str = "NO_PRICE"
 
-    # NEW:
+    
     redis_url: str = "redis://localhost:6379/0"
     app_timezone: str = "Asia/Tashkent"
 
