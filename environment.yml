@@ -1,0 +1,27 @@
+name: dentvoice
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - fastapi>=0.115
+      - uvicorn[standard]>=0.30
+      - pydantic>=2.8
+      - pydantic-settings>=2.4
+      - websockets>=12.0
+      - redis>=5.0
+      - sqlalchemy>=2.0
+      - psycopg2-binary>=2.9
+      - alembic>=1.13
+      - python-dotenv>=1.0
+      - structlog>=24.1
+      - httpx>=0.27
+      - pytest>=8.2
+      - pytest-asyncio>=0.23
+      # Voice pipeline (wired in Phase 2-4, kept here so env is ready)
+      - openai-whisper>=20231117
+      - numpy>=1.26
+      - scipy>=1.13
+      - twilio>=9.2
