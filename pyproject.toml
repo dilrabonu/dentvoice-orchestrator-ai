@@ -1,20 +1,13 @@
-
 [project]
-name = "oqtabassum-voice-agent"
+name = "dentvoice-orchestrator-ai"
 version = "0.1.0"
-description = "OqTabassum clinic AI voice agent"
+description = "Production-grade real-time Voice AI Agent for Safir Tishlar dental clinic"
 requires-python = ">=3.11"
-dependencies = [
-  "fastapi>=0.110",
-  "uvicorn>=0.27",
-  "pydantic>=2.6",
-  "pydantic-settings>=2.2",
-  "python-dotenv>=1.0",
-  "pytest>=8.0",
-  "redis>=5.0",
-  "twilio>=9.0",
-]
 
 [tool.pytest.ini_options]
+pythonpath = ["."]
 testpaths = ["tests"]
-addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
