@@ -30,4 +30,13 @@ async def call_stream(websocket: WebSocket) -> None:
     logger.info("call_session_started", call_id=session.call_id)
 
     try:
-        
+        greeting = session.start()
+        await websocket.send_text(greeting)
+
+        while True:
+            user_text = await websocket.receive_text()
+            reply = session.handle_user_turn(user_text)
+            await websocket.send_text(reply)
+
+    except WebSocketDisconnect:
+        logger.info("call_session_ended", call_id=session.call_id, state=session.state.name)
