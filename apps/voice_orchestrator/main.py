@@ -26,3 +26,8 @@ async def call_stream(websocket: WebSocket) -> None:
     a WebSocket before real audio/STT/TTS are wired in.
     """
     await websocket.accept()
+    session = DialogSession(call_id="ws-dev-session")
+    logger.info("call_session_started", call_id=session.call_id)
+
+    try:
+        
