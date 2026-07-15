@@ -20,7 +20,6 @@ class Intent(Enum):
     BOOKING = "booking"
     LOCATION = "location"
     PRICE = "price"
-    CONTACT = "contact"
-    FAQ = "faq"
-    GENERAL = "general"
+    PREPARATION = "preparation"
+    UNKNOWN = "unknown"
 
