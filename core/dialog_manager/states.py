@@ -10,3 +10,8 @@ class DialogState(Enum):
     CHECK_SLOTS_TOOL = auto()
     OFFER_ALTERNATIVES = auto()
     CONFIRM_ACTION = auto()
+    EXECUTE_ACTION = auto()
+    WRAP_UP = auto()
+    RECOVERY = auto()
+    HANDOFF = auto()
+    
