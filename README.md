@@ -21,4 +21,5 @@ Caller → Telephony → Streaming Audio → STT → Dialog Manager → Tools �
 - Structured Logging
 - Docker-ready
 
+conda activate dentvoice
 ## Project Structure
