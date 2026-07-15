@@ -14,4 +14,8 @@ class DialogState(Enum):
     WRAP_UP = auto()
     RECOVERY = auto()
     HANDOFF = auto()
+    ENDED = auto()
+
+class Intent(Enum):
+    BOOKING = "booking"
     
