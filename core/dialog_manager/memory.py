@@ -25,3 +25,11 @@ class SessionSlots:
             "customer_name": self.customer_name,
             "customer_phone": self.customer_phone,
         }
+
+@dataclass
+class SessionMemory:
+    call_id: str
+    slots: SessionSlots = field(default_factory=SessionSlots)
+    retry_counts: dict[str, int] = field(default_factory=dict)
+    last_confirmed: dict[str, Any] | None = None
+    turn_index: int = 0
