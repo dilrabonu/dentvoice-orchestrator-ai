@@ -33,3 +33,9 @@ class SessionMemory:
     retry_counts: dict[str, int] = field(default_factory=dict)
     last_confirmed: dict[str, Any] | None = None
     turn_index: int = 0
+
+    def bump_retry(self, key: str) -> int:
+        self.retry_counts[key] = self.retry_counts.get(key, 0) + 1
+        return self.retry_counts[key]
+
+    
