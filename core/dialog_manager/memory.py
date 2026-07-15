@@ -11,4 +11,10 @@ class SessionSlots:
     time: str | None = None
     customer_name: str | None = None
     customer_phone: str | None = None
-    
+
+    def missing_fields(self) -> list[str]:
+        required = ["service", "date", "time", "customer_name", "customer_phone"]
+        return [f for f in required if getattr(self, f) is None]
+
+    def as_dict(self) -> dict[str, Any]:
+        return
