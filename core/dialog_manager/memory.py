@@ -17,4 +17,11 @@ class SessionSlots:
         return [f for f in required if getattr(self, f) is None]
 
     def as_dict(self) -> dict[str, Any]:
-        return
+        return{
+            "doctor": self.doctor,
+            "service": self.service,
+            "date": self.date,
+            "time": self.time,
+            "customer_name": self.customer_name,
+            "customer_phone": self.customer_phone,
+        }
