@@ -38,4 +38,6 @@ class SessionMemory:
         self.retry_counts[key] = self.retry_counts.get(key, 0) + 1
         return self.retry_counts[key]
 
-    
+    def next_turn(self) -> int:
+        self.turn_index += 1
+        return self.turn_index
