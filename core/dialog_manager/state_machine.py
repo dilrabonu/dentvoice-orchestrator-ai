@@ -37,4 +37,13 @@ class DialogSession:
             "Sizga qanday yordam kerak?"
         )
 
-    def 
+    def handle_user_turn(self, user_text: str) -> str:
+        self.memory.next_turn()
+        logger.info(
+            "user_turn",
+            call_id=self.call_id,
+            state=self.state.name,
+            turn=self.memory.turn_index,
+
+        )
+        
