@@ -21,3 +21,10 @@ _SERVICE_KEYWORDS = {
 
 _PHONE_RE = re.compile(r"(\+?998)?\s*\d{2}[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}")
 
+class DialogSession:
+    def __init__(self, call_id: str) -> None:
+        self.call_id = call_id
+        self.state = DialogState.GREETING
+        self.memory: SessionMemory = _store.get_or_create(call_id)
+        self.memory.slots.doctor = booking_tools.DEFAULT_DOCTOR
+        
