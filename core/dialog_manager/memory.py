@@ -44,4 +44,10 @@ class SessionMemory:
 
 class InMemorySessionStore:
     def __init__(self) -> None:
-        
+        self._sessions: dict[str, SessionMemory] = {}
+
+    def get_or_create(self, call_id: str) -> SessionMemory:
+        if call_id not in self._sessions:
+            self._sessions[call_id] = SessionMemory(call_id=call_id)
+        return self._sessions[call_id]
+
