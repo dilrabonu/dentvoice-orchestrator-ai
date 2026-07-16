@@ -27,4 +27,14 @@ class DialogSession:
         self.state = DialogState.GREETING
         self.memory: SessionMemory = _store.get_or_create(call_id)
         self.memory.slots.doctor = booking_tools.DEFAULT_DOCTOR
-        
+
+        #Public API
+    def start(self) -> str:
+        self.state = DialogState.INTENT_ROUTING
+        return (
+            "Assalomu alaykum! Safir Tishlar klinakasiga xush kelibsiz!"
+            "Men sizga bron qilishda, manzil yoki ko'riklar haqida ma'lumot berishda yordam beraman."
+            "Sizga qanday yordam kerak?"
+        )
+
+    def 
