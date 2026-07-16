@@ -41,3 +41,7 @@ class SessionMemory:
     def next_turn(self) -> int:
         self.turn_index += 1
         return self.turn_index
+
+class InMemorySessionStore:
+    def __init__(self) -> None:
+        
