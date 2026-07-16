@@ -46,4 +46,20 @@ class DialogSession:
             turn=self.memory.turn_index,
 
         )
-        
+        if self.state == DialogState.INTENT_ROUTING:
+            return self._route_intent(user_text)
+        if self.state == DialogState.COLLECT_SLOTS:
+            return self._collect_slots(user_text)
+        if self.state == DialogState.OFFER_ALTERNATIVES:
+            return self._collect_slots(user_text)
+        if self.state == DialogState.CONFIRM_ACTION:
+            return self._handle_confirmation(user_text)
+        if self.state == DialogState.HANDOFF:
+            return "Sizni operatorga ulayapman, biroz kuting..."
+        if self.state == DialogState.ENDED:
+            return "Qo'ng'iroq yakunlandi. Rahmat!"
+
+        return self._fallback("Kechirasiz, tushunmadim. Qaytadan urinib ko'ring.")
+
+        # Intent routing
+    
