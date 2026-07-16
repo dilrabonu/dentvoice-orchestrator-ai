@@ -50,4 +50,9 @@ class InMemorySessionStore:
         if call_id not in self._sessions:
             self._sessions[call_id] = SessionMemory(call_id=call_id)
         return self._sessions[call_id]
+    def clear(self, call_id: str) -> None:
+        self._sessions.pop(call_id, None)
 
+class RedisSessionStore:
+    def __init__(self, redis_url: str, ttl_seconds: int) -> None:
+        raise NotImplementedError("Redis session store not implemented yet")
