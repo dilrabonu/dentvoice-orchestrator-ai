@@ -200,3 +200,9 @@ class DialogSession:
             f"ismiga bron qilamizmi? (ha / yo'q)"
         )
 
+    def _extract_time(self, text: str) -> str | None:
+        match = re.search(r"\d{1,2}[:.]\d{2}", text)
+        return match.group(0).replace(".", ":") if match else None
+
+    # Confirmation & Execution
+
