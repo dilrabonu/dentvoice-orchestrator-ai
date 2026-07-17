@@ -179,5 +179,17 @@ class DialogSession:
         self.state = DialogState.OFFER_ALTERNATIVES
         return f"{slots.date} kuni bo'sh vaqtlar: {', '.join(availble)}. Qaysi vaqtni tanlaysiz?"
     def _handle_slot_pick(self, text: str) -> str:
-        
+        slots = self.memory.slots
+        picked = self._extract_time(text)
+        available = booking_tools.get_available_slots(slots.date, slots.service)
+        if picked is None or (available and picked not in available):
+            retries = self.memory.bump_retry("time")
+            if retries >= MAX_RETRIES:
+                return self._handoff("Vaqtni tanlashda muammo")
+            return f"Iltimos, quyidagilardan birini tanlang: {', '.join(available)}."
+        slots.time = picked
+        self.state = DialogState.COLLECT_SLOTS
+        return self._next_slot_question()
+
+    
 
