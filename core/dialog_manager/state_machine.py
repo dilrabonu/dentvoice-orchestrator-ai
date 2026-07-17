@@ -113,5 +113,11 @@ class DialogSession:
             if any(k in t for k in keywords):
                 return service
         return None
-        
+
+    # Slot Collection
+    def _next_slot_question(self) -> str:
+        slots = self.memory.slots
+        if slots.service is None:
+            
+
 
