@@ -142,4 +142,13 @@ class DialogSession:
             slots.service = service
             return self._next_slot_question()
 
+        if slots.date is None:
+            slots.date = text.strip()
+            return self._next_slot_question()
+
+        if slots.time is None:
+            return self._handle_slot_pick(text)
+
+        
+
 
