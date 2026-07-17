@@ -78,5 +78,13 @@ class DialogSession:
             self.state = DialogState.COLLECT_SLOTS
             return "Qaysi xizmat narxi bilan qiziqasiz? (konsultatsiya / davolash yoki ko'rik)"
 
-        if intent = Intent.PREPARATION:
-            service
+        if intent == Intent.PREPARATION:
+            service = self._extract_service(text)
+            if service:
+                prep = booking_tools.get_preparation(service)
+                self.state = DialogState.WRAP_UP
+                return f"{prep} Yana yordam kerakmi?"
+            self.state = DialogState.COLLECT_SLOTS
+            return "Qaysi xizmat uchun tayyorlanish kerak? (konsultatsiya / davolash yoki ko'rik)"
+            
+
