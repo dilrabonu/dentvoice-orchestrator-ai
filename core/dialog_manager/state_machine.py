@@ -191,5 +191,12 @@ class DialogSession:
         self.state = DialogState.COLLECT_SLOTS
         return self._next_slot_question()
 
-    
+    def _confirm_question(self) -> str:
+        slots = self.memory.slots
+        self.state = DialogState.CONFIRM_ACTION
+        return (
+            f"Tasdiqlayman: {slots.doctor} shifokoriga, {slots.service},"
+            f"{slots.date} kuni soat {slots.time} da, {slots.customer_name}"
+            f"ismiga bron qilamizmi? (ha / yo'q)"
+        )
 
