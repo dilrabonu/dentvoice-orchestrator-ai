@@ -161,5 +161,19 @@ class DialogSession:
                     return self._handoff("Telefon raqamini aniqlab bo'lmadi")
                 return "Telefon raqamini to'liq kiriting (masalan: +998901234567)"
             slots.customer_phone = match.group(0)
+            return self._confirm_question()
+
+        return self._confirm_question()
+
+    def _offer_slots(self) -> str:
+        slots = self.memory.slots
+        available = booking_tools.get_available_slots(slots.date, slots.service)
+        if not available:
+            self.state = DialogState.OFFER_ALTERNATIVES
+            alt_date, alt_slots = booking_tools.get_next_available(slots.service)
+            slots.date = alt_date
+            return (
+                
+            )
 
 
