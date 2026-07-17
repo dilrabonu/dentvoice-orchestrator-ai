@@ -153,5 +153,13 @@ class DialogSession:
             slots.customer_name = text.strip()
             return self._next_slot_question()
         
+        if slots.customer_phone is None:
+            match = _PHONE_RE.search(text)
+            if not match:
+                retries = self.memory.bump_retry("phone")
+                if retries >= MAX_RETRIES:
+                    return self._handoff("Telefon raqamini aniqlab bo'lmadi")
+                return "Telefon raqamini to'liq kiriting (masalan: +998901234567)"
+            slots.customer_phone = match.group(0)
 
 
