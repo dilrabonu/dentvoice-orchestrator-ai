@@ -103,5 +103,9 @@ class DialogSession:
             return Intent.PRICE
         if any(k in t for k in ["tayyorgarlik", "nima qilish kerak", "oldindan"]):
             return Intent.PREPARATION
-            
+        if any(k in t for k in["bron", "yozil", "qabul", "vaqt", "band qil"]):
+            return Intent.BOOKING
+        return Intent.UNKNOWN
+
+    def  
 
