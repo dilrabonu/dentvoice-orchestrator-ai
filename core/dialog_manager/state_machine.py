@@ -173,7 +173,11 @@ class DialogSession:
             alt_date, alt_slots = booking_tools.get_next_available(slots.service)
             slots.date = alt_date
             return (
-                
+                f"Afsuski {slots.date} kuni bo'sh vaqt yo'q"
+                f"{alt.date} kuni bo'sh vaqtlar: {', '.join(alt_slots)}. Qaysi vaqt sizga qulay?"
             )
-
+        self.state = DialogState.OFFER_ALTERNATIVES
+        return f"{slots.date} kuni bo'sh vaqtlar: {', '.join(availble)}. Qaysi vaqtni tanlaysiz?"
+    def _handle_slot_pick(self, text: str) -> str:
+        
 
