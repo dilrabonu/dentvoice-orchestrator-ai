@@ -123,6 +123,10 @@ class DialogSession:
             return "Qaysi kunga bron qilishni xoxlaysiz? (masalan: bugun, ertaga yoki sana)"
         if slots.time is None:
             return self._offer_slots()
-        if 
+        if slots.customer_name is None:
+            return "Ismingizni ayting, iltimos!"
+        if slots.customer_phone is None:
+            return "Telefon raqamingizni ayting, iltimos"
+        return self._confirm_question()
 
 
