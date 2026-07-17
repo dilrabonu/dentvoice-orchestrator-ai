@@ -95,5 +95,9 @@ class DialogSession:
             "Siz bron qilmoqchimisiz, narx yoki manzil haqida bilishni xohlaysizmi?"
         )
 
-    def 
+    def _extract_intent(self, text: str) -> Intent:
+        t = text.lower()
+        if any(k in t for k in ["manzil", "qayerda", "address"]):
+            return Intent.LOCATION
+        
 
