@@ -62,4 +62,21 @@ class DialogSession:
         return self._fallback("Kechirasiz, tushunmadim. Qaytadan urinib ko'ring.")
 
         # Intent routing
-    
+    def _route_intent(self, text: str) -> str:
+        intent = self._extract_intent(text)
+
+        if intent == Intent.LOCATION:
+            self.state = DialogState.WRAP_UP
+            return booking_tools.get_location() + "Yana biror narsada yordam bera olamanmi?"
+
+        if intent == Intent.PRICE:
+            service = self._extract_service(text)
+            if service:
+                price = booking_tools.get_price(service)
+                self.state = DialogState.WRAP_UP
+                return f"{service.capitalize()} narxi: {price}. Yana yordam kerakmi?"
+            self.state = DialogState.COLLECT_SLOTS
+            return "Qaysi xizmat narxi bilan qiziqasiz? (konsultatsiya / davolash yoki ko'rik)"
+
+        if intent = Intent.PREPARATION:
+            service
