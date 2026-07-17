@@ -99,5 +99,9 @@ class DialogSession:
         t = text.lower()
         if any(k in t for k in ["manzil", "qayerda", "address"]):
             return Intent.LOCATION
-        
+        if any(k in t for k in ["narx", "qancha", "price", "necha pul"]):
+            return Intent.PRICE
+        if any(k in t for k in ["tayyorgarlik", "nima qilish kerak", "oldindan"]):
+            return Intent.PREPARATION
+            
 
