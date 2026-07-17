@@ -129,4 +129,17 @@ class DialogSession:
             return "Telefon raqamingizni ayting, iltimos"
         return self._confirm_question()
 
+    def _collect_slots(self, text: str) -> str:
+        slots = self.memory.slots
+
+        if slots.service is None:
+            service = self._extract_service(text)
+            if service is None:
+                retries = self.memory.bump_retry("service")
+                if retries >= MAX_RETRIES:
+                    return self._handoff("Xizmat turini aniqlab bo'lmadi")
+                return "Kechirasiz, tushunmadim. Konsultatsiy, tish davolash yoki tish tozalashmi birini tanlang"
+            slots.service = service
+            return self._next_slot_question()
+
 
