@@ -107,5 +107,11 @@ class DialogSession:
             return Intent.BOOKING
         return Intent.UNKNOWN
 
-    def  
+    def _extract_service(self, text: str) -> str | None:
+        t = text.lower()
+        for service, keywords in _SERVICE_KEYWORDS.items():
+            if any(k in t for k in keywords):
+                return service
+        return None
+        
 
