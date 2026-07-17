@@ -118,6 +118,9 @@ class DialogSession:
     def _next_slot_question(self) -> str:
         slots = self.memory.slots
         if slots.service is None:
-            
+            return "Qaysi xizmat kerak: konsultatsiya, tish davolash yoki tish tozalash?"
+        if slots.time is None:
+            return "Qaysi kunga bron qilishni xoxlaysiz? (masalan: bugun, ertaga yoki sana)"
+        
 
 
