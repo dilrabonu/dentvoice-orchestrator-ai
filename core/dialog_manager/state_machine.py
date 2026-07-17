@@ -149,6 +149,9 @@ class DialogSession:
         if slots.time is None:
             return self._handle_slot_pick(text)
 
+        if slots.customer_name is None:
+            slots.customer_name = text.strip()
+            return self._next_slot_question()
         
 
 
