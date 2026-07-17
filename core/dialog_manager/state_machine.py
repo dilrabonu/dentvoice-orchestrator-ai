@@ -119,8 +119,10 @@ class DialogSession:
         slots = self.memory.slots
         if slots.service is None:
             return "Qaysi xizmat kerak: konsultatsiya, tish davolash yoki tish tozalash?"
-        if slots.time is None:
+        if slots.date is None:
             return "Qaysi kunga bron qilishni xoxlaysiz? (masalan: bugun, ertaga yoki sana)"
-        
+        if slots.time is None:
+            return self._offer_slots()
+        if 
 
 
