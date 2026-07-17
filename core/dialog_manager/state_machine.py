@@ -86,5 +86,14 @@ class DialogSession:
                 return f"{prep} Yana yordam kerakmi?"
             self.state = DialogState.COLLECT_SLOTS
             return "Qaysi xizmat uchun tayyorlanish kerak? (konsultatsiya / davolash yoki ko'rik)"
-            
+
+        if intent == Intent.BOOKING:
+            self.state = DialogState.COLLECT_SLOTS
+            return self._next_slot_question()
+
+        return self._fallback(
+            "Siz bron qilmoqchimisiz, narx yoki manzil haqida bilishni xohlaysizmi?"
+        )
+
+    def 
 
