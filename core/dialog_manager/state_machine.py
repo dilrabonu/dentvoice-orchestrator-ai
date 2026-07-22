@@ -232,7 +232,13 @@ class DialogSession:
         logger.info("booking_created", call_id=self.call_id, booking_id=result["booking_id"])
         return (
             f"Bron muvaffaqiyatli yaratildi! Bron raqami: {result['booking_id']}."
-            f"{slots.date} kuni soat"
+            f"{slots.date} kuni soat {slots.time} da sizni kutamiz. Yana yordam kerakmi?"
         )
+
+    # Fallback & handoff
+    def _fallback(self, message: str) -> str:
+        retries = self.memory.bump_retry("intent")
+        if retries >= MAX_RETRIES:
+            return 
 
 
