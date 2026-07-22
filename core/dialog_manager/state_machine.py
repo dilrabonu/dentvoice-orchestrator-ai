@@ -239,6 +239,9 @@ class DialogSession:
     def _fallback(self, message: str) -> str:
         retries = self.memory.bump_retry("intent")
         if retries >= MAX_RETRIES:
-            return 
+            return self._handoff("Niyatni aniqlab bo'lmadi")
+        return message
+
+    
 
 
