@@ -230,6 +230,9 @@ class DialogSession:
         self.memory.last_confirmed = result
         self.state = DialogState.WRAP_UP
         logger.info("booking_created", call_id=self.call_id, booking_id=result["booking_id"])
-        
+        return (
+            f"Bron muvaffaqiyatli yaratildi! Bron raqami: {result['booking_id']}."
+            f"{slots.date} kuni soat"
+        )
 
 
