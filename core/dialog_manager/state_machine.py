@@ -227,5 +227,9 @@ class DialogSession:
             customer_phone=slots.customer_phone,
             idem_key=slots.idem_key
         )
+        self.memory.last_confirmed = result
+        self.state = DialogState.WRAP_UP
+        logger.info("booking_created", call_id=self.call_id, booking_id=result["booking_id"])
         
+
 
