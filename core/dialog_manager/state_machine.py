@@ -207,5 +207,6 @@ class DialogSession:
     # Confirmation & Execution
     def handle_confirmation(self, text: str) -> str:
         t = text.lower().strip()
-        if t in
+        if t in {"ha", "ha", "tasdiqlayman", "yes", "ok", "xop"}:
+            return self._execute_booking()
 
