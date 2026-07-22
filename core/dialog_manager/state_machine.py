@@ -212,4 +212,10 @@ class DialogSession:
         if t in {"yo'q", "yoq", "no", "bekor", "net"}:
             self.state = DialogState.WRAP_UP
             return "Bronni bekor qildim. Yana boshqa narsada yordam bera olamanmi?"
-        return "Iltimos 'ha' yoki 'yo'q' deb javob bering" 
+        return "Iltimos 'ha' yoki 'yo'q' deb javob bering"
+
+    def _execute_booking(self) -> str:
+        slots = self.memory.slots
+        idem_key = f"{self.call_id}: {self.memory.turn_index}:create_booking"
+        booking_tools.updert_customer(slots.customer_name, slots.customer_phone)
+        
