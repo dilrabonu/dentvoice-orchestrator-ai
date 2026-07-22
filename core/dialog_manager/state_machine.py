@@ -217,5 +217,15 @@ class DialogSession:
     def _execute_booking(self) -> str:
         slots = self.memory.slots
         idem_key = f"{self.call_id}: {self.memory.turn_index}:create_booking"
-        booking_tools.updert_customer(slots.customer_name, slots.customer_phone)
+        booking_tools.upsert_customer(slots.customer_name, slots.customer_phone)
+        result = booking_tools.create_booking(
+            doctor=slots.doctor,
+            service=slots.service,
+            date=slots.date,
+            time=slots.time,
+            customer_name=slots.customer_name,
+            customer_phone=slots.customer_phone,
+            idem_key=slots.idem_key
+        )
         
+
