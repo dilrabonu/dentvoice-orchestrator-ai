@@ -245,6 +245,7 @@ class DialogSession:
     def _handoff(self, reason: str) -> str:
         self.state = DialogState.HANDOFF
         booking_tools.handoff_to_human(reason=reason, summary=self.memory.slots.as_dict())
-        
+        logger.info("handoff", call_id=self.call_id, reason=reason)
+        return "Sizni operatorga ulab beraman, biroz kuting..."
 
 
