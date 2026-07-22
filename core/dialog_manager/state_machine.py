@@ -205,4 +205,7 @@ class DialogSession:
         return match.group(0).replace(".", ":") if match else None
 
     # Confirmation & Execution
+    def handle_confirmation(self, text: str) -> str:
+        t = text.lower().strip()
+        if t in
 
