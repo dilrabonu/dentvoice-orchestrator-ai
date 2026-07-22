@@ -209,4 +209,7 @@ class DialogSession:
         t = text.lower().strip()
         if t in {"ha", "ha", "tasdiqlayman", "yes", "ok", "xop"}:
             return self._execute_booking()
-
+        if t in {"yo'q", "yoq", "no", "bekor", "net"}:
+            self.state = DialogState.WRAP_UP
+            return "Bronni bekor qildim. Yana boshqa narsada yordam bera olamanmi?"
+        return "Iltimos 'ha' yoki 'yo'q' deb javob bering" 
