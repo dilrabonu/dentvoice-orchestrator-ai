@@ -242,6 +242,9 @@ class DialogSession:
             return self._handoff("Niyatni aniqlab bo'lmadi")
         return message
 
-    
+    def _handoff(self, reason: str) -> str:
+        self.state = DialogState.HANDOFF
+        booking_tools.handoff_to_human(reason=reason, summary=self.memory.slots.as_dict())
+        
 
 
