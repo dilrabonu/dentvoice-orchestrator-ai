@@ -19,4 +19,11 @@ _PRICES = {
     "ko'rik": 0,
 }
 
-_P
+_PREPARATION = {"konsultatsiya": "Konsultatsiyaga oldindan ovqatlanib kelsangiz bo'ladi, maxsus tayyorgarlik shart emas.",
+    "tish davolash": "Davolashdan oldin 2 soat og'ir ovqat yemaslikni tavsiya qilamiz.",
+    "tish tozalash": "Tish tozalashdan oldin maxsus tayyorgarlik talab qilinmaydi.",
+}
+
+_LOCATION = "Manzil: Uchko'prik tumani, Markaziy stadion yonida"
+
+
