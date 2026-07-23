@@ -27,3 +27,17 @@ _PREPARATION = {"konsultatsiya": "Konsultatsiyaga oldindan ovqatlanib kelsangiz 
 _LOCATION = "Manzil: Uchko'prik tumani, Markaziy stadion yonida"
 
 
+# In-memory fake tables
+_customers: dict[str, Customer] = {}
+_bookings: dict[str, Booking] = {}
+_idempotency_cache: dict[str, dict] = {}
+_booked_slots: set[tuple[str, str, str]] = set()  # (doctor, date, time)
+
+_ALL_DAY_SLOTS = ["09:00", "10:30", "11:30", "13:00", "15:00", "16:30", "18:00"]
+
+
+def get_services() -> list[str]:
+    return list(_SERVICES)
+
+def get_available_slots(date: str, service: str) -> list[str]:
+    
