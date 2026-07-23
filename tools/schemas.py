@@ -13,4 +13,9 @@ class Booking(BaseModel):
     date: str
     time: str
     customer_name: str
-    
+    customer_phone: str
+    status: str = "confirmed"
+
+class HandoffRequest(BaseModel):
+    reason: str
+    summary: dict
