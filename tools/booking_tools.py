@@ -51,3 +51,7 @@ def get_next_available(service: str) -> tuple[str, list[str]]:
 
 def get_price(service: str) -> str:
     return _PRICES.get(service, "N/A")
+
+def get_location() -> str:
+    return _LOCATION
+
