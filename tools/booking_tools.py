@@ -55,3 +55,6 @@ def get_price(service: str) -> str:
 def get_location() -> str:
     return _LOCATION
 
+def get_preparation(service: str) -> str:
+    return _PREPARATION.get(service, "Maxsus tayyorgarlik talab qilinmaydi")
+
