@@ -40,4 +40,5 @@ def get_services() -> list[str]:
     return list(_SERVICES)
 
 def get_available_slots(date: str, service: str) -> list[str]:
+    doctor = DEFAULT_DOCTOR
     
