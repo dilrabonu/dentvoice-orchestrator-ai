@@ -41,4 +41,6 @@ def get_services() -> list[str]:
 
 def get_available_slots(date: str, service: str) -> list[str]:
     doctor = DEFAULT_DOCTOR
+    taken = {t for (d, dt, t) in _booked_slots if d == doctor and dt == date}
+    return [s for s in _ALL_DAY_SLOTS if s not in taken]
     
