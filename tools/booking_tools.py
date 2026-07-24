@@ -43,4 +43,10 @@ def get_available_slots(date: str, service: str) -> list[str]:
     doctor = DEFAULT_DOCTOR
     taken = {t for (d, dt, t) in _booked_slots if d == doctor and dt == date}
     return [s for s in _ALL_DAY_SLOTS if s not in taken]
+
+def get_next_available(service: str) -> tuple[str, list[str]]:
+    """Fallback used when the requested date is fully booked"""
+    tomorrow = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
+    return tomorrow, get_available_slots(tomorrow, service)
+    
     
