@@ -48,5 +48,6 @@ def get_next_available(service: str) -> tuple[str, list[str]]:
     """Fallback used when the requested date is fully booked"""
     tomorrow = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
     return tomorrow, get_available_slots(tomorrow, service)
-    
-    
+
+def get_price(service: str) -> str:
+    return _PRICES.get(service, "N/A")
