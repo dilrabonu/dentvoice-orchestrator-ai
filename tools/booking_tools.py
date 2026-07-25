@@ -90,4 +90,16 @@ def create_booking(
         _idempotency_cache[idem_key] = result
         return result
 
+    booking_id = str(uuid.uuid4())[:8]
+    booking = Booking(
+        booking_id=booking_id,
+        doctor=doctor,
+        service=service,
+        date=date,
+        time=time,
+        customer_name=customer_name,
+        customer_phone=customer_phone,
+    )
+    
+
 
