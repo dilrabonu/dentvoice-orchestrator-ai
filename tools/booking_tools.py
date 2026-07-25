@@ -58,3 +58,6 @@ def get_location() -> str:
 def get_preparation(service: str) -> str:
     return _PREPARATION.get(service, "Maxsus tayyorgarlik talab qilinmaydi")
 
+def find_customer_by_phone(phone: str) -> Customer | None:
+    return _customers.get(phone)
+
