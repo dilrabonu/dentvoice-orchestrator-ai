@@ -100,6 +100,13 @@ def create_booking(
         customer_name=customer_name,
         customer_phone=customer_phone,
     )
+    _bookings[booking_id] = booking
+    _booked_slots.add(slot_key)
+
+    result = {"status": "confirmed", "booking_id": booking_id}
+    _idempotency_cache[idem_key] = result
+    logger.info("handoff_to_human", reason=reason, summary=summary)
     
+
 
 
