@@ -84,5 +84,10 @@ def create_booking(
         logger.info("idempotent_hit", idem_key=idem_key)
         return _idempotency_cache[idem_key]
 
+    slot_key = (doctor, date, time)
+    if slot_key in _booked_slots:
+        result = {"status": "conflict", "booking_id": None}
+        _idempotency_cache[idem_key] = result
+        return result
 
 
