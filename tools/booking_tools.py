@@ -76,6 +76,13 @@ def create_booking(
     idem_key: str,
 ) -> dict:
     """Idempotent booking creation.
-    
+    Same idem_key (call_id + turn_id + action) always returns the same
+    result instead of creating a duplicate booking - this is the exact
+    mechanism that prevents double-booking on retries/barge-in.
+    """
+    if idem_key in _idempotency_cache:
+        logger.info("idempotent_hit", idem_key=idem_key)
+        return _idempotency_cache[idem_key]
+
 
 
