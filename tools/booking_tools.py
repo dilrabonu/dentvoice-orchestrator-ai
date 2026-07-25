@@ -61,3 +61,9 @@ def get_preparation(service: str) -> str:
 def find_customer_by_phone(phone: str) -> Customer | None:
     return _customers.get(phone)
 
+def upsert_customer(name: str, phone: str) -> Customer:
+    customer = Customer(name=name, phone=phone)
+    _customers[phone] = customer
+    return customer
+    
+
