@@ -65,5 +65,17 @@ def upsert_customer(name: str, phone: str) -> Customer:
     customer = Customer(name=name, phone=phone)
     _customers[phone] = customer
     return customer
+
+def create_booking(
+    doctor: str,
+    service: str,
+    date: str,
+    time: str,
+    customer_name: str,
+    customer_phone: str,
+    idem_key: str,
+) -> dict:
+    """Idempotent booking creation.
     
+
 
