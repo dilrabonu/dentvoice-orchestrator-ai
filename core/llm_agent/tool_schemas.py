@@ -12,7 +12,9 @@ TOOL_SCHEMAS = [
             "type": "object",
             "properties": {
                 "date": {"type": "string", "description": "Date, e.g. 2026-07-15 or 'ertaga'"},
-                "service": 
+                "service": {"type": "string", "enum": ["konsultatsiya", "tish davolash", "tish tozalash"]},
+            },
+            
             }
         }
     }
