@@ -49,7 +49,18 @@ TOOL_SCHEMAS = [
         "input_schemas": {"type": "object", "properties": {}},
     },
     {
-        
+        "name": "get_preparation",
+        "description": "Get pre-visit preparation instructions for a service.",
+        "input_schema": {
+            "type": "object",
+            "properties": {"service": {"type": "string"}},
+            "required" : ["service"],
+        },
+    },
+    {
+        "name":
+    }
+
     }
         }
      
