@@ -24,6 +24,12 @@ TOOL_SCHEMAS = [
             "type": "object",
             "properties": {
                 "doctor": {"type": "string"},
+                "service": {"type": "string"},
+                "date": {"type": "string"},
+                "time": {"type": "string"},
+                "customer_name": {"type": "string"},
+                "customer_phone": {"type": "string"},
+                "idem_key": {"type": "string", "description": "call_id:turn_id:create_booking"},
                 
             }
         }
