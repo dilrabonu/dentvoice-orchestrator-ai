@@ -58,8 +58,16 @@ TOOL_SCHEMAS = [
         },
     },
     {
-        "name":
-    }
+        "name": "find_customer_by_phone",
+        "description": "Look up an existing customer by phone number.",
+        "input_schema": {
+            "type": "object",
+            "properties": {"phone": {"type": "string"}},
+            "required": ["phone"],
+        },
+    },
+    {
+        "name": 
 
     }
         }
