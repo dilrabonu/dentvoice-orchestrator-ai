@@ -30,8 +30,9 @@ TOOL_SCHEMAS = [
                 "customer_name": {"type": "string"},
                 "customer_phone": {"type": "string"},
                 "idem_key": {"type": "string", "description": "call_id:turn_id:create_booking"},
-                
-            }
+            },
+            "required": ["doctor", "service", "date", "time", "customer_name", "customer_phone", "idem_key"],
+            
         }
      
     
