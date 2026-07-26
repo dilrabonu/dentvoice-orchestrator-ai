@@ -32,7 +32,18 @@ TOOL_SCHEMAS = [
                 "idem_key": {"type": "string", "description": "call_id:turn_id:create_booking"},
             },
             "required": ["doctor", "service", "date", "time", "customer_name", "customer_phone", "idem_key"],
-            
+        },
+    },
+    {
+        "name": "get_price",
+        "description": "Get the price for a given service.",
+        "input_schema": {
+            "type": "object",
+            "properties": {"service": {"type": "string"}},
+            "required": ["service"],
+        },
+    },
+    {}
         }
      
     
