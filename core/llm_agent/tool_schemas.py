@@ -18,8 +18,15 @@ TOOL_SCHEMAS = [
         },
     },
     {
-        "name": 
-    }
+        "name": "create_booking",
+        "description": "Cerate a booking. MUST be called only after explicit user confirmation.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "doctor": {"type": "string"},
+                
+            }
+        }
      
     
 ]
