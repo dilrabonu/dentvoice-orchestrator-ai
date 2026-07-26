@@ -14,8 +14,12 @@ TOOL_SCHEMAS = [
                 "date": {"type": "string", "description": "Date, e.g. 2026-07-15 or 'ertaga'"},
                 "service": {"type": "string", "enum": ["konsultatsiya", "tish davolash", "tish tozalash"]},
             },
-            
-            }
-        }
+            "required": ["date", "service"],
+        },
+    },
+    {
+        "name": 
     }
+     
+    
 ]
