@@ -67,7 +67,9 @@ TOOL_SCHEMAS = [
         },
     },
     {
-        "name": 
+        "name": "handoff_to_human",
+        "description": "Transfer the call to a human operator. Use after repeated failures or explicit request.",
+        
 
     }
         }
