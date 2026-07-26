@@ -43,7 +43,14 @@ TOOL_SCHEMAS = [
             "required": ["service"],
         },
     },
-    {}
+    {
+        "name": "get_location",
+        "description": "Get the clinic's address and directions.",
+        "input_schemas": {"type": "object", "properties": {}},
+    },
+    {
+        
+    }
         }
      
     
