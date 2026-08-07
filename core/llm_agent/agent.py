@@ -6,4 +6,6 @@ class LLMAgent:
         self.tools = tools
 
     async def step(self, history: list[dict], user_text: str) -> tuple[str, list[dict]]:
-        
+        raise NotImplementedError(
+            "Subclasses must implement the step method"
+        )
