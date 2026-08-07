@@ -11,4 +11,4 @@ Not implemented yet - Phase 1 is text-mode only, no audio path.
 from __future__ import annotations
 
 def decode_mulaw_to_pcm16(mulaw_bytes: bytes) -> bytes:
-    r
+    raise NotImplementedError("Phase 2/4 task")
