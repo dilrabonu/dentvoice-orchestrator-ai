@@ -8,12 +8,3 @@ engines expect 16kHz PCM. This module will:
 
 Not implemented yet - Phase 1 is text-mode only, no audio path.
 """
-from __future__ import annotations
-
-
-def decode_mulaw_to_pcm16(mulaw_bytes: bytes) -> bytes:
-    raise NotImplementedError("Phase 2/4 task")
-
-
-def resample_8k_to_16k(pcm16_bytes: bytes) -> bytes:
-    raise NotImplementedError("Phase 2/4 task")
