@@ -14,4 +14,4 @@ class VoiceActivityDetector:
         self.sample_rate = sample_rate
 
     def is_speech(self, audio_chunk: bytes) -> bool:
-        
+        raise NotImplementedError("Phase 2/4 task - wire up e.g. webrtcvad or Silero VAD")
