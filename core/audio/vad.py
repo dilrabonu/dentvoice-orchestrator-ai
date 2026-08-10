@@ -12,4 +12,6 @@ from __future__ import annotations
 class VoiceActivityDetector:
     def __init__(self, sample_rate: int = 16000) -> None:
         self.sample_rate = sample_rate
+
+    def is_speech(self, audio_chunk: bytes) -> bool:
         
