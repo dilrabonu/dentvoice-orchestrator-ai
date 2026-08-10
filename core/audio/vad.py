@@ -10,4 +10,6 @@ Not implemented yet - Phase 1 is text-mode only, no audio path.
 from __future__ import annotations
 
 class VoiceActivityDetector:
-    def __init__
+    def __init__(self, sample_rate: int = 16000) -> None:
+        self.sample_rate = sample_rate
+        
