@@ -49,6 +49,7 @@ class ToolAuditLog(Base):
     call_id: Mapped[str] = mapped_column(String, index=True)
     idempotency_key: Mapped[str] = mapped_column(String, unique=True)
     tool_name: Mapped[str] = mapped_column(String)
+    result_status: Mapped[str] = mapped_column(String)
     user_id: Mapped[str] = mapped_column(String)
     user_input: Mapped[str] = mapped_column(String)
     assistant_response: Mapped[str] = mapped_column(String)
