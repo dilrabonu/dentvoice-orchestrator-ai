@@ -32,3 +32,9 @@ class Booking(Base):
 
     id : Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     tenant_id: Mapped[str] = mapped_column(String, index=True)
+    doctor_id: Mapped[str] = mapped_column(String, index=True)
+    service: Mapped[str] = mapped_column(String)
+    date: Mapped[str] = mapped_column(String, index=True)
+    time: Mapped[str] = mapped_column(String, index=True)
+    customer_id: Mapped[str] = mapped_column(String, ForeignKey("customers.id"))
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
