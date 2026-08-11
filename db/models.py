@@ -46,6 +46,8 @@ class ToolAuditLog(Base):
     
     id: Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     tenant_id: Mapped[str] = mapped_column(String, index=True)
+    call_id: Mapped[str] = mapped_column(String, index=True)
+    idempotency_key: Mapped[str] = mapped_column(String, unique=True)
     tool_name: Mapped[str] = mapped_column(String)
     user_id: Mapped[str] = mapped_column(String)
     user_input: Mapped[str] = mapped_column(String)
