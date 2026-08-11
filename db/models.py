@@ -39,3 +39,15 @@ class Booking(Base):
     customer_id: Mapped[str] = mapped_column(String, ForeignKey("customers.id"))
     status: Mapped[str] = mapped_column(String, default="confirmed")
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+
+class ToolAuditLog(Base):
+    __tablename__ = "tool_audit_logs"
+    
+    id: Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    tenant_id: Mapped[str] = mapped_column(String, index=True)
+    tool_name: Mapped[str] = mapped_column(String)
+    user_id: Mapped[str] = mapped_column(String)
+    user_input: Mapped[str] = mapped_column(String)
+    assistant_response: Mapped[str] = mapped_column(String)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
