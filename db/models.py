@@ -23,4 +23,11 @@ class Customer(Base):
     phone: Mapped[str] = mapped_column(String, index=True)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
-    
+
+class Booking(Base):
+    __tablename__ = "bookings"
+    __table_args__ = (
+        UniqueConstraint("tenant_id", "doctor_id", "date", "time", name="uq_doctor_slot"),
+    )
+
+    id : 
