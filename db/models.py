@@ -37,4 +37,5 @@ class Booking(Base):
     date: Mapped[str] = mapped_column(String, index=True)
     time: Mapped[str] = mapped_column(String, index=True)
     customer_id: Mapped[str] = mapped_column(String, ForeignKey("customers.id"))
+    status: Mapped[str] = mapped_column(String, default="confirmed")
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
