@@ -30,4 +30,5 @@ class Booking(Base):
         UniqueConstraint("tenant_id", "doctor_id", "date", "time", name="uq_doctor_slot"),
     )
 
-    id : 
+    id : Mapped[str] = mapped_column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    tenant_id: Mapped[str] = mapped_column(String, index=True)
