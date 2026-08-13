@@ -43,4 +43,4 @@ def configure_logging(level: str = "INFO", json_output: bool = False) -> None:
 def get_logger(name: str):
     return structlog.get_logger(name)
 
-    
+configure_logging()
