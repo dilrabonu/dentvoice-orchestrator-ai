@@ -13,5 +13,7 @@ import structurelog
 
 def configure_logging(level: str = "INFO", json_output: bool = False) -> None:
     logging.basicConfig(
-        format
+        format="%(message)s",
+        stream=sys.stdout,
+        level=getattr(logging, level.upper(), logging.INFO),
     )
