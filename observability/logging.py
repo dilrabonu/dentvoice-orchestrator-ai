@@ -28,4 +28,11 @@ def configure_logging(level: str = "INFO", json_output: bool = False) -> None:
     if json_output:
         processors.append(structurelog.processors.JSONRenderer())
     else:
-        
+        processors.append(structurelog.dev.ConsoleRenderer())
+
+    structurelog.configure(
+        processors=processors,
+        wrapper_class=structurelog.make_filtering_bound_logger(
+            getattr
+        ))
+
