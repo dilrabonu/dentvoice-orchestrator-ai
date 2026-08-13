@@ -25,4 +25,7 @@ def configure_logging(level: str = "INFO", json_output: bool = False) -> None:
         structurelog.processors.StackInfoRenderer(),
     ]
 
-    if 
+    if json_output:
+        processors.append(structurelog.processors.JSONRenderer())
+    else:
+        
