@@ -36,5 +36,8 @@ def configure_logging(level: str = "INFO", json_output: bool = False) -> None:
             getattr(logging, level.upper(), logging.INFO)
         ),
         context_class=dict,
-        
+        logger_factory=structlog.PrintLoggerFactory(),
+        cache_logger_on_first_use=True,
+    )
 
+def
