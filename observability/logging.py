@@ -40,4 +40,7 @@ def configure_logging(level: str = "INFO", json_output: bool = False) -> None:
         cache_logger_on_first_use=True,
     )
 
-def
+def get_logger(name: str):
+    return structlog.get_logger(name)
+
+    
