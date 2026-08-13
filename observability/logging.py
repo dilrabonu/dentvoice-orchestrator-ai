@@ -33,6 +33,8 @@ def configure_logging(level: str = "INFO", json_output: bool = False) -> None:
     structurelog.configure(
         processors=processors,
         wrapper_class=structurelog.make_filtering_bound_logger(
-            getattr
-        ))
+            getattr(logging, level.upper(), logging.INFO)
+        ),
+        context_class=dict,
+        
 
