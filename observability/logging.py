@@ -17,3 +17,12 @@ def configure_logging(level: str = "INFO", json_output: bool = False) -> None:
         stream=sys.stdout,
         level=getattr(logging, level.upper(), logging.INFO),
     )
+
+    processors = [
+        structurelog.contextvars.merge_contextvars,
+        structurelog.processors.add_log_level,
+        structurelog.processors.TimeStamper(fmt="iso"),
+        structurelog.processors.StackInfoRenderer(),
+    ]
+
+    if 
